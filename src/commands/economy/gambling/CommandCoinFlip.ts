@@ -3,6 +3,7 @@ import { SlashCommandBuilder } from '@discordjs/builders';
 import { ExecuteFunction } from '../../../structures/Command';
 import { User } from '../../../structures/schemas/User';
 import CreateUserAccount from '../../../util/CreateUserAccount';
+import Cooldown from '../../../util/Cooldown';
 
 export const data = new SlashCommandBuilder()
     .setName('coinflip')
@@ -22,12 +23,19 @@ export const data = new SlashCommandBuilder()
 
 export const execute: ExecuteFunction = async (interaction: CommandInteraction) =>
 {
+    const cooldown = await Cooldown(interaction.user, 5000);
+    if(cooldown)
+    {
+        interaction.reply('You are currently on cooldown, try again in a little bit.');
+        return;
+    }
+
     const side = interaction.options.getString('side');
     const bet = interaction.options.getInteger('bet') ?? 0;
 
     const user = await User.findOne({ userID: interaction.user.id });
 
-    if (!user)
+    if(!user)
         CreateUserAccount(user);
 
     if(user.balance < bet)

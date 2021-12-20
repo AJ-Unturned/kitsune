@@ -18,6 +18,7 @@ class kClient extends Client
 {
     private _options: kClientOptions;
     public commands: Collection<string, any> = new Collection<string, any>();
+    public cooldowns: Collection<string, number> = new Collection<string, number>();
 
     constructor(options: ClientOptions, kOptions: kClientOptions)
     {

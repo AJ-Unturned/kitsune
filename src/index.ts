@@ -23,3 +23,5 @@ const client: kClient = new kClient({
 });
 
 client.init(token);
+
+export default client;

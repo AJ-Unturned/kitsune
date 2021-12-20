@@ -1,0 +1,32 @@
+{
+  "devDependencies": {
+    "@types/node": "^16.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint": "^8.3.0",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "discord.js": "^13.3.1",
+    "mongoose": "^6.0.13"
+  },
+  "name": "katsune",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest ./tests/",
+    "jest": "npx jest ./tests/",
+    "compile": "npx tsc",
+    "node": "node ./dist/src/src/index.js",
+    "ts-node": "npx ts-node ./src/index.ts",
+    "nodemon": "npx nodemon ./src/index.ts",
+    "lint": "npx eslint . --ext .ts",
+    "lint-fix": "npx eslint . --ext .ts --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

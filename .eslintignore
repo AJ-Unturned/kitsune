@@ -1,0 +1,10 @@
+# build/modules
+dist
+node_modules
+
+# configs
+env
+.env
+.env.local
+.env.development
+config.json

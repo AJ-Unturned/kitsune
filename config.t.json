@@ -1,0 +1,9 @@
+{
+    "token": "",
+    "logchannel": "",
+    "mongo": {
+        "username": "",
+        "password": "",
+        "uri": ""
+    }
+}

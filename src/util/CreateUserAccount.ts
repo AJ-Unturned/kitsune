@@ -3,7 +3,7 @@ import { User } from '../structures/schemas/User';
 
 const CreateUserAccount = (member: GuildMember | dUser) =>
 {
-    const newUser = new User({ userID: member.id, balance: 0 });
+    const newUser = new User({ userID: member.id, balance: 100 });
     return newUser.save();
 };
 

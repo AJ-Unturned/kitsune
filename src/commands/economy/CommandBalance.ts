@@ -41,7 +41,7 @@ export const execute: ExecuteFunction = async (interaction: CommandInteraction) 
                         `
                     \`\`\`
 
-    ${user.username} has ${ userData.balance } kats!
+    ${ user.username } has ${ userData.balance } kats!
     ,_     _
     |\\\\_,-~/
     / _  _ |    ,--.
@@ -105,7 +105,7 @@ const setBalance = async (interaction: CommandInteraction, set: number, user: dU
         const userData = await User.findOne({ userID: interaction.user.id });
 
         if(!userData)
-            return interaction.reply('You do not have an account??? wtf? how what???');
+            CreateUserAccount(interaction.user);
 
         userData.balance = set;
 
@@ -141,7 +141,7 @@ const setBalance = async (interaction: CommandInteraction, set: number, user: dU
         const userData = await User.findOne({ userID: user.id });
 
         if(!userData)
-            return interaction.reply('You do not have an account??? wtf? how what???');
+            CreateUserAccount(user);
 
         userData.balance = set;
 

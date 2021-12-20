@@ -15,10 +15,15 @@ export const execute: ExecuteFunction = async (interaction: CommandInteraction) 
     if(!userData)
         CreateUserAccount(interaction.user);
     
+    const amount: number = Math.floor(Math.random() * (200 - 50) + 50);
+    
+    userData.balance += amount;
+    userData.save();
+
     return interaction.reply({
         embeds: [
             {
-                title: 'You begged and got ' + Math.floor(Math.random() * 100) + 2 + ' kats!',
+                title: 'You begged and got ' + amount + ' kats!',
                 footer: {
                     text: 'You begged for money, you rat.',
                 }

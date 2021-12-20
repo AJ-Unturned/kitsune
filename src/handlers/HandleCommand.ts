@@ -13,7 +13,7 @@ async function handleCommand(client: kClient, interaction: CommandInteraction): 
     }
     catch (err)
     {
-        console.error(err);
+        console.log(err);
         await interaction.reply('There was an error trying to execute that command!');
     }
 }

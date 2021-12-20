@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
-import { CommandInteraction } from 'discord.js';
+import { CommandInteraction, Permissions } from 'discord.js';
 import { ExecuteFunction } from '../../structures/Command';
 
 export const data = new SlashCommandBuilder()
@@ -18,6 +18,9 @@ export const data = new SlashCommandBuilder()
 
 export const execute: ExecuteFunction = async (interaction: CommandInteraction) =>
 {
+    if(!interaction.memberPermissions?.has(Permissions.FLAGS.ADMINISTRATOR))
+        return interaction.reply('You do not have permission to change the status of the bot.');
+
     if(interaction.options.getString('content'))
     {
         if(interaction.options.getString('type'))

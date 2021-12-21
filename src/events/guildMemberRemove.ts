@@ -6,6 +6,9 @@ export = (client: kClient, member: GuildMember) =>
 {
     const welcomeChannel = client.channels.cache.get(WelcomeChannelID) as any as TextChannel;
 
+    if(!welcomeChannel)
+        return;
+
     return welcomeChannel.send({
         embeds: [
             {

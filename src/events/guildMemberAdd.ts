@@ -18,7 +18,10 @@ export = (client: kClient, member: GuildMember) =>
         return;
     }));
 
-    const welcomeChannel = client.channels.cache.get(WelcomeChannelID) as any as TextChannel;
+    const welcomeChannel = client.channels.cache.get(WelcomeChannelID) as any as TextChannel; 
+
+    if(!welcomeChannel)
+        return;
 
     return welcomeChannel.send({
         embeds: [

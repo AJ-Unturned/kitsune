@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "discord.js": "^13.3.1",
-    "mongoose": "^6.0.13"
+    "mongoose": "^6.4.6"
   },
   "name": "katsune",
   "version": "1.0.0",
